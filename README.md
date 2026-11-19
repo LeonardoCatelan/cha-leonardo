@@ -1,4 +1,4 @@
-# Chá de Casa Nova — Vitória & Felipe
+# Chá de Casa Nova — Leonardo
 
 Convite digital construído com Next.js, React, TypeScript, App Router e Supabase.
 O projeto usa o runtime oficial do Next.js e o Supabase como único backend.
@@ -25,6 +25,8 @@ Copie `.env.example` para `.env.local` e preencha:
 - `GIFT_ADMIN_CODE` (código de convite do casal, no formato `XXXX-XXXX`);
 - `INVITATION_CODE_SECRET` (segredo aleatório de 64 caracteres hexadecimais
   usado para proteger códigos e sessões de convite).
+- `PIX_KEY`, `PIX_HOLDER` e `PIX_KEY_KIND` (opcionais: o Pix exibido no convite;
+  sem chave ou titular, o cartão de Pix não aparece).
 
 Nunca prefixe a chave secreta com `NEXT_PUBLIC_`.
 
@@ -170,6 +172,7 @@ Production, Preview e Development:
 | `SUPABASE_SECRET_KEY` | idem — **nunca** prefixe com `NEXT_PUBLIC_` |
 | `GIFT_ADMIN_CODE` | o código `XXXX-XXXX` do casal, escolhido por você |
 | `INVITATION_CODE_SECRET` | 64 caracteres hexadecimais aleatórios |
+| `PIX_KEY` / `PIX_HOLDER` / `PIX_KEY_KIND` | sua chave Pix, o titular e o rótulo do tipo de chave — opcionais |
 
 Dois cuidados que valem para este projeto:
 

@@ -23,11 +23,11 @@ const place = [
 
 /**
  * Mensagem pronta para colar no WhatsApp, uma por convite. Quem manda é o
- * casal, do telefone pessoal, então ela é escrita na voz deles e já carrega o
+ * Leonardo, do telefone pessoal, então ela é escrita na voz dele e já carrega o
  * link com o código de quem vai receber.
  *
- * Os dois públicos recebem textos diferentes de propósito: são duas festas em
- * dias diferentes, cada uma com a sua data. O tratamento também muda — o
+ * Os dois públicos recebem textos diferentes de propósito, e cada um lê a data
+ * do seu próprio grupo, mesmo que hoje sejam iguais. O tratamento muda — o
  * convite de família costuma ir para uma casa inteira, e o dos amigos vai para
  * uma pessoa só.
  */
@@ -43,7 +43,7 @@ export function buildInvitationMessage({
     return [
       `Oi, ${displayName}! 💚`,
       "",
-      "A gente finalmente vai se mudar! E como casa nova pede gente dentro, vamos fazer um chá pra inaugurar — vocês não podem faltar.",
+      "Finalmente vou me mudar! E como casa nova pede gente dentro, vou fazer um chá pra inaugurar — vocês não podem faltar.",
       "",
       `📅 ${bold(event.compactDate)} — ${event.compactDateNote}`,
       place,
@@ -54,10 +54,10 @@ export function buildInvitationMessage({
       `O link é pessoal e abre sozinho com o código de vocês (${code}). Lá dentro tem todas as informações.`,
       "",
       "",
-      "Avisa se a gente pode contar com vocês, só pra acertar a comida e o gelo!",
+      "Me avisa se posso contar com vocês, só pra acertar a comida e o gelo!",
       "",
       "Beijo,",
-      "Felipe e Vitória",
+      "Leonardo",
     ].join("\n");
   }
 
@@ -66,7 +66,7 @@ export function buildInvitationMessage({
   return [
     `Oi, ${displayName}! 💚`,
     "",
-    "A gente finalmente vai se mudar! Vamos fazer um chá de casa nova pra inaugurar, e você está na lista.",
+    "Finalmente vou me mudar! Vou fazer um chá de casa nova pra inaugurar, e você está na lista.",
     "",
     `📅 ${bold(event.compactDate)} — ${event.compactDateNote}`,
     place,
@@ -76,9 +76,9 @@ export function buildInvitationMessage({
     "",
     `O link é pessoal e abre sozinho com o teu código (${code}). Lá dentro tem todas as informações.`,
     "",
-    "Avisa se a gente pode contar contigo, só pra acertar a comida e o gelo!",
+    "Me avisa se posso contar contigo, só pra acertar a comida e o gelo!",
     "",
     "Abraço,",
-    "Felipe e Vitória",
+    "Leonardo",
   ].join("\n");
 }

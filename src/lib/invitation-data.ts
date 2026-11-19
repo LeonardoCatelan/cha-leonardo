@@ -30,64 +30,66 @@ export const heroCopy = {
   eyebrow: "Chá de casa nova",
   titleLead: "Casa nova,",
   titleAccent: "porta aberta.",
-  deck: "Uma casa nova pede gente dentro. Vem inaugurar a nossa.",
+  deck: "Uma casa nova pede gente dentro. Vem inaugurar a minha.",
 } as const;
 
 export const sharedEvent = {
-  address: "Rua Nossa Senhora Aparecida, 1132",
-  neighborhood: "Harmonia — Canoas/RS",
+  address: "Rua Cândida Paim Terra, 93",
+  // O local exato vai junto do bairro: é a linha que acompanha o endereço no
+  // convite, no mapa e na mensagem de WhatsApp.
+  neighborhood: "Salão de festas do condomínio — Olaria, Canoas/RS",
   // Sem `·` interno: a ficha técnica do hero já usa esse separador entre o
   // espaço e a cidade, e dois seguidos ficam ilegíveis.
   city: "Canoas, RS",
   mapUrl:
-    "https://www.google.com/maps/search/?api=1&query=Rua%20Nossa%20Senhora%20Aparecida%2C%201132%2C%20Harmonia%2C%20Canoas%2C%20RS",
+    "https://www.google.com/maps/search/?api=1&query=Rua%20C%C3%A2ndida%20Paim%20Terra%2C%2093%2C%20Olaria%2C%20Canoas%2C%20RS",
   // Embed público do Google Maps: sem chave de API e sem script externo.
   // Aponta direto para o destino final — a forma `?q=…&output=embed` responde
   // 301 com `X-Frame-Options: SAMEORIGIN`, e pular o salto evita depender de
   // como cada navegador trata o cabeçalho no redirect.
   mapEmbedUrl:
-    "https://www.google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1sRua+Nossa+Senhora+Aparecida,+1132,+Harmonia,+Canoas+-+RS",
+    "https://www.google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1sRua+C%C3%A2ndida+Paim+Terra,+93,+Olaria,+Canoas+-+RS",
 } as const;
 
 export const invitationGroups = {
   familia: {
-    specWhen: "Sábado, 19 de setembro",
-    specWhenNote: "2026 · a partir das 15h",
-    weekday: "sábado",
-    day: "19",
-    monthYear: "setembro de 2026",
-    time: "15h",
-    dateTime: "2026-09-19T15:00:00-03:00",
-    compactDate: "19 de setembro",
-    compactDateNote: "sábado, a partir das 15h",
-    whenNote: "A gente fica por lá a tarde toda.",
+    specWhen: "Domingo, 13 de dezembro",
+    specWhenNote: "2026 · a partir das 11h",
+    weekday: "domingo",
+    day: "13",
+    monthYear: "dezembro de 2026",
+    time: "11h",
+    dateTime: "2026-12-13T11:00:00-03:00",
+    compactDate: "13 de dezembro",
+    compactDateNote: "domingo, a partir das 11h",
+    whenNote: "Fico por lá o dia todo.",
     rsvpEyebrow: "Confirmação",
     rsvpTitle: "Você vem?",
     rsvpCopy:
-      "Diz pra gente com alguma antecedência — assim a comida e o gelo dão conta.",
+      "Me avisa com alguma antecedência — assim a comida e o gelo dão conta.",
     rsvpLabel: "Confirmar pelo WhatsApp",
     rsvpMessage:
-      "Oi, Vitória e Felipe! Confirmo minha presença no chá de casa nova da família, dia 19 de setembro, às 15h. 💚",
+      "Oi, Leonardo! Confirmo minha presença no chá de casa nova da família, dia 13 de dezembro, às 11h. 💚",
     rsvpNote: "Se aparecer um imprevisto, avisa também. Sem cerimônia.",
   },
   amigos: {
-    specWhen: "Domingo, 20 de setembro",
-    specWhenNote: "2026 · a partir das 15h",
+    specWhen: "Domingo, 13 de dezembro",
+    specWhenNote: "2026 · a partir das 11h",
     weekday: "domingo",
-    day: "20",
-    monthYear: "setembro de 2026",
-    time: "15h",
-    dateTime: "2026-09-20T15:00:00-03:00",
-    compactDate: "20 de setembro",
-    compactDateNote: "domingo, a partir das 15h",
-    whenNote: "A gente fica por lá a tarde toda.",
+    day: "13",
+    monthYear: "dezembro de 2026",
+    time: "11h",
+    dateTime: "2026-12-13T11:00:00-03:00",
+    compactDate: "13 de dezembro",
+    compactDateNote: "domingo, a partir das 11h",
+    whenNote: "Fico por lá o dia todo.",
     rsvpEyebrow: "Confirmação",
     rsvpTitle: "Você vem?",
     rsvpCopy:
       "Avisa com alguma antecedência — assim a comida e o gelo dão conta.",
     rsvpLabel: "Confirmar pelo WhatsApp",
     rsvpMessage:
-      "Oi, Vitória e Felipe! Confirmo minha presença no chá de casa nova com os amigos, dia 20 de setembro, às 15h. 💚",
+      "Oi, Leonardo! Confirmo minha presença no chá de casa nova com os amigos, dia 13 de dezembro, às 11h. 💚",
     rsvpNote: "Se aparecer um imprevisto, avisa também. Sem cerimônia.",
   },
 } as const satisfies Record<InvitationGroup, InvitationDetails>;
@@ -124,9 +126,3 @@ export const giftLists = [
   },
 ] as const;
 
-export const pixDetails = {
-  key: "04870422042",
-  holder: "Felipe de Mello Schneider",
-  kind: "Chave CPF",
-  logo: "/logos/pix.png",
-} as const;

@@ -7,7 +7,7 @@ use_memories = true
 disable_on_external_context = false
 
 [mcp_servers.supabase]
-url = "https://mcp.supabase.com/mcp?project_ref=zxmqqbzwdoydupcxniyg"
+url = "https://mcp.supabase.com/mcp?project_ref=rklzzxthjksvawnbqvwp"
 auth = "oauth"
 enabled = true
 default_tools_approval_mode = "writes"

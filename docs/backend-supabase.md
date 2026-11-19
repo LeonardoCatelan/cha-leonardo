@@ -7,8 +7,8 @@ backend. Não há ORM, Cloudflare, D1, Vinext ou Wrangler.
 
 O projeto atualmente conectado no painel é:
 
-- Project ref: `zxmqqbzwdoydupcxniyg`
-- URL: `https://zxmqqbzwdoydupcxniyg.supabase.co`
+- Project ref: `rklzzxthjksvawnbqvwp`
+- URL: `https://rklzzxthjksvawnbqvwp.supabase.co`
 
 O schema versionado fica em `supabase/migrations`. Não faça alterações manuais
 no Table Editor sem criar a migration equivalente.
@@ -20,7 +20,7 @@ project ref:
 
 ```toml
 [mcp_servers.supabase]
-url = "https://mcp.supabase.com/mcp?project_ref=zxmqqbzwdoydupcxniyg"
+url = "https://mcp.supabase.com/mcp?project_ref=rklzzxthjksvawnbqvwp"
 auth = "oauth"
 enabled = true
 default_tools_approval_mode = "writes"
@@ -53,7 +53,7 @@ Alternativa reproduzível com o CLI:
 
 ```bash
 pnpm exec supabase login
-pnpm exec supabase link --project-ref zxmqqbzwdoydupcxniyg
+pnpm exec supabase link --project-ref rklzzxthjksvawnbqvwp
 pnpm db:push
 pnpm db:types
 ```
@@ -66,7 +66,7 @@ No painel do Supabase, abra **Project Settings > API Keys**. Configure
 `.env.local` sem enviar as chaves pelo chat:
 
 ```dotenv
-SUPABASE_URL=https://zxmqqbzwdoydupcxniyg.supabase.co
+SUPABASE_URL=https://rklzzxthjksvawnbqvwp.supabase.co
 SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 SUPABASE_SECRET_KEY=sb_secret_...
 GIFT_ADMIN_CODE=ABCD-EFGH

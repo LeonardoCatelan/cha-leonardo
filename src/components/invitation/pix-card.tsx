@@ -42,7 +42,7 @@ export function PixCard({ holder, kind, logo, pixKey }: PixCardProps) {
         </span>
       </h3>
       <p className="way__desc">
-        Para quem prefere que a gente escolha junto o que ainda falta.
+        Para quem prefere que eu escolha o que ainda falta.
       </p>
       <dl className="way__pix">
         <dt>Titular</dt>

@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 import { buildWhatsAppShareUrl } from "@/lib/external-links";
+import { getPixDetails } from "@/lib/pix";
 import {
   giftLists,
   heroCopy,
   invitationGroups,
-  pixDetails,
   sharedEvent,
   type InvitationGroup,
 } from "@/lib/invitation-data";
@@ -32,6 +32,7 @@ export function InvitationPage({
 }: InvitationPageProps) {
   const event = invitationGroups[group];
   const whatsappUrl = buildWhatsAppShareUrl(event.rsvpMessage);
+  const pix = getPixDetails();
 
   return (
     <main>
@@ -101,7 +102,7 @@ export function InvitationPage({
             <div className="ww__col">
               <header className="section-heading" data-reveal-item>
                 <p className="eyebrow">Um novo capítulo</p>
-                <h2 id="details-title">Nossa casa tem endereço</h2>
+                <h2 id="details-title">Minha casa tem endereço</h2>
                 <p className="section-heading__note">
                   Chegou a hora de encher de gente.
                 </p>
@@ -195,7 +196,7 @@ export function InvitationPage({
         <div className="container">
           <header className="section-heading" data-reveal-item>
             <p className="eyebrow">Se quiser presentear</p>
-            <h2 id="gifts-title">Nossas listas de presente</h2>
+            <h2 id="gifts-title">Listas de presente</h2>
             <p className="section-heading__note">
               São três caminhos, sem preferência entre eles. Sua presença já
               resolve a festa; o resto é bônus.
@@ -237,12 +238,14 @@ export function InvitationPage({
               </li>
             ))}
 
-            <PixCard
-              holder={pixDetails.holder}
-              kind={pixDetails.kind}
-              logo={pixDetails.logo}
-              pixKey={pixDetails.key}
-            />
+            {pix && (
+              <PixCard
+                holder={pix.holder}
+                kind={pix.kind}
+                logo={pix.logo}
+                pixKey={pix.key}
+              />
+            )}
           </ul>
 
           <IndividualGiftList displayName={displayName} />
@@ -256,7 +259,7 @@ export function InvitationPage({
         </blockquote>
         <hr className="footer__rule" />
         <p className="footer__signature" data-reveal-item>
-          Felipe <span>&amp;</span> Vitória
+          Leonardo
         </p>
         <p className="footer__place" data-reveal-item>
           {sharedEvent.city} · 2026

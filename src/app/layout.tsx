@@ -25,10 +25,10 @@ const monoFont = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chá de Casa Nova — Felipe & Vitória",
+    default: "Chá de Casa Nova — Leonardo",
     template: "%s | Casa nova",
   },
-  description: "Convite digital para celebrar o novo lar de Felipe e Vitória.",
+  description: "Convite digital para celebrar o novo lar do Leonardo.",
   applicationName: "Chá de Casa Nova",
   referrer: "strict-origin-when-cross-origin",
   robots: {

@@ -16,7 +16,7 @@ import { createSupabaseAdminClient } from "@/lib/supabase/server";
 const codeAlphabet = "ABCDEFGHJKMNPQRSTUVWXYZ23456789";
 const invitationCodePattern = /^[A-HJ-KM-NP-Z2-9]{8}$/;
 const sessionDurationSeconds = 60 * 60 * 24 * 180;
-const adminInvitationName = "Felipe & Vitória";
+const adminInvitationName = "Leonardo";
 const adminCodeTakenMessage =
   "O valor de GIFT_ADMIN_CODE já pertence ao convite de um convidado. Escolha outro código.";
 
