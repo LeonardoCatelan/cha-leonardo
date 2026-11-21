@@ -3,7 +3,6 @@ import Link from "next/link";
 import { buildWhatsAppShareUrl } from "@/lib/external-links";
 import { getPixDetails } from "@/lib/pix";
 import {
-  giftLists,
   heroCopy,
   invitationGroups,
   sharedEvent,
@@ -196,59 +195,25 @@ export function InvitationPage({
         <div className="container">
           <header className="section-heading" data-reveal-item>
             <p className="eyebrow">Se quiser presentear</p>
-            <h2 id="gifts-title">Listas de presente</h2>
+            <h2 id="gifts-title">Lista de presentes</h2>
             <p className="section-heading__note">
-              São três caminhos, sem preferência entre eles. Sua presença já
-              resolve a festa; o resto é bônus.
+              Sua presença já resolve a festa; o resto é bônus. Reserve só o
+              que quiser dar — os links são sugestões, compre onde preferir.
             </p>
           </header>
 
-          {/* Os três caminhos têm o mesmo peso: nenhum é apresentado como
-              preferido. */}
-          <ul className="ways" data-reveal-item>
-            {giftLists.map((list) => (
-              <li className={`way way--${list.tone}`} key={list.name}>
-                <span className="way__label">{list.label}</span>
-                {/* A marca fica dentro do h3: a hierarquia de cabeçalho
-                    permanece e o nome acessível vem do alt. */}
-                <h3 className="way__name">
-                  {list.logo ? (
-                    <span className="way__chip">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={list.logo} alt={list.name} loading="lazy" />
-                    </span>
-                  ) : (
-                    list.name
-                  )}
-                </h3>
-                <p className="way__desc">{list.description}</p>
-                {/* Link e aviso não são alternativas: a Casa Maria tem os dois,
-                    porque o site dela mostra a lista mas não a vende. */}
-                {list.action && (
-                  <a
-                    className="way__go"
-                    href={list.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {list.action} <i aria-hidden="true">↗</i>
-                  </a>
-                )}
-                {list.note && <span className="way__tag">{list.note}</span>}
-              </li>
-            ))}
-
-            {pix && (
-              <PixCard
-                holder={pix.holder}
-                kind={pix.kind}
-                logo={pix.logo}
-                pixKey={pix.key}
-              />
-            )}
-          </ul>
-
           <IndividualGiftList displayName={displayName} />
+
+          {/* O Pix vem depois da lista: é a alternativa para quem olhou os
+              itens e prefere transferir. */}
+          {pix && (
+            <PixCard
+              holder={pix.holder}
+              kind={pix.kind}
+              logo={pix.logo}
+              pixKey={pix.key}
+            />
+          )}
         </div>
       </section>
 

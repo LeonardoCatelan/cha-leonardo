@@ -341,7 +341,7 @@ export function GiftCreator({ onCount }: GiftCreatorProps) {
                         />
                       </label>
                       <label className="adm-field--full">
-                        <span>Link de referência</span>
+                        <span>Link de referência opcional</span>
                         <input
                           type="url"
                           value={editDraft.referenceUrl}

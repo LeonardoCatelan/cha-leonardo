@@ -701,160 +701,116 @@ h1, h2, h3, h4 {
 .rsvp .btn { margin-top: 2.25rem; }
 .rsvp__note { margin-top: 1.5rem; color: rgba(242, 234, 221, .5); font-size: .85rem; font-style: italic; }
 
-/* ═══════════════════════════════════════════════ formas de presentear ═══ */
+/* ═══════════════════════════════════ lista de presentes (registro) ═══ */
 
 .gifts { background: var(--paper-warm); }
 
-/* Três painéis lado a lado, com superfícies distintas: a diferença de cor é o
-   que sinaliza "aqui estão as listas". Mesmo tamanho e mesma anatomia, para
-   nenhum parecer o preferido. */
-.ways {
+/* A lista é o conteúdo principal da seção: começa logo abaixo do cabeçalho. */
+.ledger { margin-top: 0; }
+
+/* ═════════════════════════════════════════════════════════ pix ═══ */
+
+/* Painel horizontal depois da lista: apresentação à esquerda, dados e ação à
+   direita. Tom de madeira para se separar das linhas da lista sem competir
+   com elas. */
+.pix {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2.4vw, 1.5rem);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.way {
-  display: flex;
-  flex-direction: column;
-  padding: clamp(1.5rem, 3vw, 2.1rem);
-  border: 1px solid var(--line);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(3rem, 8vw, 5rem);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  border: 1px solid rgba(169, 134, 90, .38);
   border-radius: var(--r-soft);
-  transition: transform var(--dur-base) var(--ease-quick), box-shadow var(--dur-base) var(--ease-quick);
+  background: var(--sand);
 }
 
-.way__label {
+.pix__label {
   display: inline-flex;
-  align-self: flex-start;
   padding: .34rem .7rem;
   border-radius: var(--r-pill);
+  background: rgba(169, 134, 90, .22);
+  color: #7a5a2e;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: .58rem;
   font-weight: 500;
   letter-spacing: .16em;
   text-transform: uppercase;
 }
-.way__name { margin-top: 1rem; font-size: clamp(1.5rem, 3vw, 1.9rem); }
 
-/* Chip claro atrás da marca. As duas logos são coloridas — vermelho e
-   magenta — e nenhuma delas sobreviveria sobre o cartão verde-floresta. O
-   chip tem altura fixa nos três cartões para a anatomia bater. */
-.way__chip {
+.pix__title {
   display: flex;
   align-items: center;
+  gap: .85rem;
+  margin-top: 1rem;
+  color: var(--forest);
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+}
+
+/* Chip claro atrás da marca: o símbolo do Pix é maciço e precisa de respiro. */
+.pix__chip {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
   justify-content: center;
-  height: 3.6rem;
-  padding: .55rem 1rem;
+  height: 3rem;
+  padding: .5rem .8rem;
   border-radius: 12px;
   background: #fff;
   box-shadow: 0 1px 0 rgba(48, 58, 40, .06);
 }
-.way__chip img {
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-  object-fit: contain;
-}
-/* Densidades diferentes pedem alturas diferentes: o Casa Maria é um oval
-   fechado e cheio, e o Pix tem um símbolo maciço ao lado do lettering — os
-   dois dominariam se igualassem a altura do lettering fino da Camicado. */
-.way--forest .way__chip img { max-height: 82%; }
-.way--wood .way__chip img { max-height: 74%; }
-.way__desc { margin: .6rem 0 0; font-size: .93rem; line-height: 1.55; }
+.pix__chip img { max-height: 100%; width: auto; object-fit: contain; }
 
-.way__pix { margin: 1.1rem 0 0; display: grid; gap: .15rem; }
-.way__pix dt {
+.pix__desc { margin: .6rem 0 0; color: var(--ink-soft); font-size: .93rem; line-height: 1.55; }
+
+.pix__data {
+  display: grid;
+  gap: 1.25rem;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  border-left: 1px solid rgba(169, 134, 90, .38);
+}
+
+.pix__fields { display: grid; gap: .15rem; margin: 0; }
+.pix__fields dt {
+  color: var(--ink-soft);
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: .56rem;
   letter-spacing: .16em;
   text-transform: uppercase;
   opacity: .7;
 }
-.way__pix dt + dd { margin: 0 0 .55rem; font-size: .88rem; }
-.way__key { font-family: var(--font-mono), ui-monospace, monospace; font-size: .66rem; line-height: 1.5; word-break: break-all; opacity: .75; }
+.pix__fields dd { margin: 0 0 .55rem; color: var(--ink-soft); font-size: .92rem; }
+.pix__fields dd:last-child { margin-bottom: 0; }
+.pix__fields .pix__key {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: .78rem;
+  line-height: 1.5;
+  word-break: break-all;
+}
 
-/* Empurra a ação para a base: os três cartões terminam alinhados mesmo com
-   descrições de tamanhos diferentes. */
-.way__go, .way__tag { margin-top: auto; align-self: flex-start; }
-/* Com os dois no mesmo cartão, só o primeiro empurra. Dois `margin-top: auto`
-   irmãos dividiriam o espaço livre entre si e separariam o par que precisa ser
-   lido junto. */
-.way__go + .way__tag { margin-top: .7rem; }
-
-.way__go {
+.pix__copy {
+  justify-self: start;
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
   min-height: var(--tap);
-  margin-top: auto;
   padding: 0 1.15rem;
   border: 1px solid currentColor;
   border-radius: var(--r-pill);
   background: none;
+  color: #7a5a2e;
   cursor: pointer;
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: .66rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  text-decoration: none;
   white-space: nowrap;
   transition: background var(--dur-fast) var(--ease-quick), color var(--dur-fast) var(--ease-quick);
 }
-.way__go i { font-style: normal; transition: translate var(--dur-base) var(--ease-quick); }
-
-.way__tag {
-  padding: .5rem 1rem;
-  border-radius: var(--r-pill);
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: .6rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-/* — tom 1: papel — */
-.way--paper { background: var(--paper); }
-.way--paper .way__label { background: var(--moss-tint); color: var(--moss); }
-.way--paper .way__name { color: var(--forest); }
-.way--paper .way__desc { color: var(--ink-soft); }
-.way--paper .way__go { color: var(--moss); }
-
-/* — tom 2: floresta — */
-.way--forest { background: var(--forest); border-color: var(--forest); }
-.way--forest .way__label { background: rgba(242, 234, 221, .14); color: var(--wood); }
-.way--forest .way__name { color: var(--beige); }
-.way--forest .way__desc { color: var(--on-forest); }
-/* O estado de repouso faltava: este cartão nunca tinha tido link, e sem cor
-   própria o texto e a borda saíam escuros sobre o verde-escuro. O hover já
-   existia logo abaixo, esperando por ele. */
-.way--forest .way__go { color: var(--beige); }
-.way--forest .way__tag { background: rgba(242, 234, 221, .12); color: var(--wood); }
-
-/* — tom 3: madeira — */
-.way--wood { background: var(--sand); border-color: rgba(169, 134, 90, .38); }
-.way--wood .way__label { background: rgba(169, 134, 90, .22); color: #7a5a2e; }
-.way--wood .way__name { color: var(--forest); }
-.way--wood .way__desc { color: var(--ink-soft); }
-.way--wood .way__pix dt, .way--wood .way__pix dd { color: var(--ink-soft); }
-.way--wood .way__go { color: #7a5a2e; }
-.way--wood .way__go.is-done { background: var(--wood); border-color: var(--wood); color: var(--forest); }
+.pix__copy.is-done { background: var(--wood); border-color: var(--wood); color: var(--forest); }
 
 @media (hover: hover) and (pointer: fine) {
-  .way:hover { transform: translateY(-3px); box-shadow: var(--shadow-soft); }
-  .way:hover .way__go i { translate: 3px -3px; }
-  .way--paper .way__go:hover { background: var(--moss); color: var(--paper); }
-  .way--forest .way__go:hover { background: var(--beige); color: var(--forest); }
-  .way--wood .way__go:hover { background: #7a5a2e; color: var(--paper); }
+  .pix__copy:not(.is-done):hover { background: #7a5a2e; color: var(--paper); }
 }
-
-/* ═══════════════════════════════════ lista de presentes (registro) ═══ */
-
-.ledger { margin-top: clamp(3rem, 8vw, 5rem); }
-.ledger__intro { max-width: 36rem; margin-bottom: 1.75rem; }
-.ledger__intro h3 { margin: .5rem 0 .6rem; font-size: var(--t-h2); color: var(--forest); }
-.ledger__intro p { margin: 0; color: var(--ink-soft); }
 
 .ledger__filters { display: flex; gap: .45rem; margin-bottom: 1rem; }
 
@@ -1509,10 +1465,6 @@ h1, h2, h3, h4 {
   .hero__ring { width: clamp(9rem, 30vw, 12rem); }
   .hero__sprig { height: clamp(6.5rem, 22vw, 9rem); }
 
-  /* Dois em cima, um embaixo ocupando a largura — continua legível como
-     conjunto de listas. */
-  .ways { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .ways > :last-child { grid-column: 1 / -1; }
   .ww { grid-template-columns: 1fr; gap: 2.5rem; }
   .ww__col .section-heading { margin-bottom: 1.75rem; }
   .place__map { aspect-ratio: 3 / 2; }
@@ -1582,18 +1534,14 @@ h1, h2, h3, h4 {
   .date-compact__note { color: var(--moss); font-size: .95rem; }
   .ww__note { margin-top: .8rem; padding-left: 1.1rem; }
 
-  /* Empilhados e ocupando a largura toda, os cartões precisam de mais ar
-     entre si do que precisavam lado a lado — senão viram um bloco só. */
-  .ways { grid-template-columns: 1fr; gap: 1.75rem; }
-  .way { padding: 1.6rem 1.4rem; }
-  .way__chip { height: 3.2rem; }
-  .way__label { padding: .4rem .8rem; }
-  .way__name { margin-top: 1.15rem; }
-  .way__desc { margin-top: .85rem; }
-  .way__pix { margin-top: 1.25rem; }
-  /* Sem altura sobrando para o `margin-top: auto` distribuir, a ação
-     encostava no texto. */
-  .way__go, .way__tag { margin-top: 1.4rem; }
+  /* Sem "à direita": os dados do Pix descem para baixo da apresentação, e o
+     divisor vertical vira horizontal. A ação ocupa a largura toda para ser um
+     alvo fácil de tocar. */
+  .pix { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.6rem 1.4rem; }
+  .pix__label { padding: .4rem .8rem; }
+  .pix__chip { height: 2.7rem; }
+  .pix__data { padding: 1.4rem 0 0; border-left: 0; border-top: 1px solid rgba(169, 134, 90, .38); }
+  .pix__copy { justify-self: stretch; justify-content: center; }
 
   /* Três faixas: cabeçalho, ação em largura cheia e gaveta. Antes a ação e a
      gaveta dividiam a mesma área e se sobrepunham. */

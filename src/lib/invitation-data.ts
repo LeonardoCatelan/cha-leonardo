@@ -94,35 +94,3 @@ export const invitationGroups = {
   },
 } as const satisfies Record<InvitationGroup, InvitationDetails>;
 
-/**
- * `logo` aponta para um arquivo em `public/logos/`. Sem ele, o cartão mostra o
- * nome da loja em tipografia de display.
- */
-export const giftLists = [
-  {
-    name: "Camicado",
-    logo: "/logos/camicado.png" as string | null,
-    label: "Lista de presentes",
-    description:
-      "Nossa lista está montada no site. Dá para comprar de casa e receber em casa.",
-    action: "Abrir a lista",
-    note: null,
-    tone: "paper",
-    url: "https://lista.camicado.com.br/livi",
-  },
-  {
-    // O link abre a lista, mas não vende: serve para conferir os itens antes de
-    // sair de casa. Por isso o cartão traz as duas coisas — a visita ao site e
-    // o aviso de que a compra continua sendo no balcão.
-    name: "Casa Maria",
-    logo: "/logos/casa-maria.png" as string | null,
-    label: "Lista de presentes",
-    description:
-      "Dá para ver os itens pelo site antes de ir, mas a compra não sai por lá: é só pedir a lista de Vitória e Felipe no balcão da loja.",
-    action: "Ver os itens da lista",
-    note: "A compra é só na loja",
-    tone: "forest",
-    url: "https://bazarcasamaria.com.br/lista-de-presente-individual/?gift_list=cha-de-casa-nova-vitoria-e-felipe",
-  },
-] as const;
-

@@ -310,17 +310,9 @@ export function IndividualGiftList({ displayName }: IndividualGiftListProps) {
   }
 
   return (
-    <section className="ledger" id="lista-presentes">
-      <div className="ledger__intro">
-        <p className="eyebrow">Escolha com calma</p>
-        <h3>Lista de presentes</h3>
-        <p>
-          Reserve só a quantidade que quiser presentear. Sua escolha fica no
-          convite e reaparece em qualquer aparelho com o mesmo código. Os links
-          são apenas referências — compre onde preferir.
-        </p>
-      </div>
-
+    // O título e a explicação ficam no cabeçalho da seção, que agora é a
+    // própria lista — repetir aqui seria dizer "Lista de presentes" duas vezes.
+    <div className="ledger" id="lista-presentes">
       <div className="ledger__filters" role="group" aria-label="Filtrar lista">
         {filters.map((option) => (
           <button
@@ -390,7 +382,7 @@ export function IndividualGiftList({ displayName }: IndividualGiftListProps) {
                 </span>
 
                 <div className="row__body">
-                  <h4 className="row__name">{item.name}</h4>
+                  <h3 className="row__name">{item.name}</h3>
                   {item.description && state !== "taken" && (
                     <p className="row__desc">{item.description}</p>
                   )}
@@ -544,6 +536,6 @@ export function IndividualGiftList({ displayName }: IndividualGiftListProps) {
           {message}
         </p>
       )}
-    </section>
+    </div>
   );
 }
