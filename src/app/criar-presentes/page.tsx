@@ -7,7 +7,7 @@ import { readInvitationSessionFromCookies } from "@/lib/invitations/server";
 
 export const metadata: Metadata = {
   title: "Painel",
-  description: "Área privada do casal para presentes e convites.",
+  description: "Painel do Leonardo para presentes e convites.",
   robots: { index: false, follow: false },
 };
 

@@ -26,10 +26,9 @@ const place = [
  * Leonardo, do telefone pessoal, então ela é escrita na voz dele e já carrega o
  * link com o código de quem vai receber.
  *
- * Os dois públicos recebem textos diferentes de propósito, e cada um lê a data
- * do seu próprio grupo, mesmo que hoje sejam iguais. O tratamento muda — o
- * convite de família costuma ir para uma casa inteira, e o dos amigos vai para
- * uma pessoa só.
+ * O texto é o mesmo para família e amigos, e por isso evita marcar singular ou
+ * plural: o convite de família costuma ir para uma casa inteira, e o dos
+ * amigos para uma pessoa só. Só a data vem do grupo, que pode mudar um dia.
  */
 export function buildInvitationMessage({
   audience,
@@ -37,48 +36,24 @@ export function buildInvitationMessage({
   displayName,
   link,
 }: InvitationMessageInput) {
-  if (audience === "familia") {
-    const event = invitationGroups.familia;
-
-    return [
-      `Oi, ${displayName}! 💚`,
-      "",
-      "Finalmente vou me mudar! E como casa nova pede gente dentro, vou fazer um chá pra inaugurar — vocês não podem faltar.",
-      "",
-      `📅 ${bold(event.compactDate)} — ${event.compactDateNote}`,
-      place,
-      "",
-      "O convite de vocês está aqui:",
-      link,
-      "",
-      `O link é pessoal e abre sozinho com o código de vocês (${code}). Lá dentro tem todas as informações.`,
-      "",
-      "",
-      "Me avisa se posso contar com vocês, só pra acertar a comida e o gelo!",
-      "",
-      "Beijo,",
-      "Leonardo",
-    ].join("\n");
-  }
-
-  const event = invitationGroups.amigos;
+  const event = invitationGroups[audience];
 
   return [
-    `Oi, ${displayName}! 💚`,
+    `Oi, ${displayName}!`,
     "",
-    "Finalmente vou me mudar! Vou fazer um chá de casa nova pra inaugurar, e você está na lista.",
+    "Depois de muito planejamento, finalmente estou de casa nova. E uma conquista dessas merece ser comemorada com quem faz parte da minha história — por isso vou fazer um chá de casa nova, e o convite é seu.",
     "",
     `📅 ${bold(event.compactDate)} — ${event.compactDateNote}`,
     place,
     "",
-    "Teu convite já está de pé:",
+    "Todas as informações estão no convite:",
     link,
     "",
-    `O link é pessoal e abre sozinho com o teu código (${code}). Lá dentro tem todas as informações.`,
+    `O link é pessoal e já abre com o código do convite (${code}).`,
     "",
-    "Me avisa se posso contar contigo, só pra acertar a comida e o gelo!",
+    "Quando puder, me confirma a presença por lá. Vai ser muito bom receber quem é importante pra mim na casa nova.",
     "",
-    "Abraço,",
+    "Um abraço,",
     "Leonardo",
   ].join("\n");
 }

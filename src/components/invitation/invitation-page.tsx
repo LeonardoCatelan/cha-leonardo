@@ -100,10 +100,10 @@ export function InvitationPage({
           <div className="ww">
             <div className="ww__col">
               <header className="section-heading" data-reveal-item>
-                <p className="eyebrow">Um novo capítulo</p>
-                <h2 id="details-title">Minha casa tem endereço</h2>
+                <p className="eyebrow">O dia</p>
+                <h2 id="details-title">Marca na agenda</h2>
                 <p className="section-heading__note">
-                  Chegou a hora de encher de gente.
+                  Reserva o domingo.
                 </p>
               </header>
 
@@ -197,8 +197,8 @@ export function InvitationPage({
             <p className="eyebrow">Se quiser presentear</p>
             <h2 id="gifts-title">Lista de presentes</h2>
             <p className="section-heading__note">
-              Sua presença já resolve a festa; o resto é bônus. Reserve só o
-              que quiser dar — os links são sugestões, compre onde preferir.
+              Vir já é o presente. Se quiser ajudar a montar a casa, a lista
+              tá aqui — os links são sugestões, compre onde preferir.
             </p>
           </header>
 
@@ -219,9 +219,6 @@ export function InvitationPage({
 
       <footer className="footer" data-reveal>
         <BotanicalMark className="footer__sprig" />
-        <blockquote className="footer__quote" data-reveal-item>
-          <p>Casa é onde a gente volta — e onde cabe mais um lugar à mesa.</p>
-        </blockquote>
         <hr className="footer__rule" />
         <p className="footer__signature" data-reveal-item>
           Leonardo

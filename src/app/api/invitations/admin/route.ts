@@ -77,7 +77,7 @@ function mapDatabaseError(error: PostgrestError) {
     return new AdminError("Esse convite não existe mais.", 404);
   }
   if (error.message.includes("admin_invitation_locked")) {
-    return new AdminError("O convite do casal não pode ser excluído.", 409);
+    return new AdminError("O convite do anfitrião não pode ser excluído.", 409);
   }
   if (error.code === "23514") {
     if (error.message.includes("gift_invitations_display_name_length")) {
@@ -211,7 +211,7 @@ export async function POST(request: NextRequest) {
       );
     }
     if (!session.invitation.isAdmin) {
-      throw new AdminError("Esta área é exclusiva do casal.", 403);
+      throw new AdminError("Esta área é exclusiva do anfitrião.", 403);
     }
 
     const action = typeof payload.action === "string" ? payload.action : "list";

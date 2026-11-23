@@ -159,7 +159,7 @@ function requireGiftId(value: unknown) {
 
 function requireAdmin(session: InvitationSession) {
   if (!session.invitation.isAdmin) {
-    throw new ApiError("Esta área é exclusiva do casal.", 403);
+    throw new ApiError("Esta área é exclusiva do anfitrião.", 403);
   }
 }
 

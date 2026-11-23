@@ -28,9 +28,9 @@ type InvitationDetails = {
 
 export const heroCopy = {
   eyebrow: "Chá de casa nova",
-  titleLead: "Casa nova,",
-  titleAccent: "porta aberta.",
-  deck: "Uma casa nova pede gente dentro. Vem inaugurar a minha.",
+  titleLead: "Casa própria,",
+  titleAccent: "casa aberta.",
+  deck: "Foi uma conquista, e quero comemorar com quem fez parte dela.",
 } as const;
 
 export const sharedEvent = {
@@ -64,13 +64,13 @@ export const invitationGroups = {
     compactDateNote: "domingo, a partir das 11h",
     whenNote: "Fico por lá o dia todo.",
     rsvpEyebrow: "Confirmação",
-    rsvpTitle: "Você vem?",
+    rsvpTitle: "Conto contigo?",
     rsvpCopy:
-      "Me avisa com alguma antecedência — assim a comida e o gelo dão conta.",
+      "Me avisa com antecedência pra eu me organizar.",
     rsvpLabel: "Confirmar pelo WhatsApp",
     rsvpMessage:
-      "Oi, Leonardo! Confirmo minha presença no chá de casa nova da família, dia 13 de dezembro, às 11h. 💚",
-    rsvpNote: "Se aparecer um imprevisto, avisa também. Sem cerimônia.",
+      "Oi, Leonardo! Confirmo minha presença no chá de casa nova da família, dia 13 de dezembro, às 11h.",
+    rsvpNote: "Se mudar de planos, é só avisar.",
   },
   amigos: {
     specWhen: "Domingo, 13 de dezembro",
@@ -84,13 +84,13 @@ export const invitationGroups = {
     compactDateNote: "domingo, a partir das 11h",
     whenNote: "Fico por lá o dia todo.",
     rsvpEyebrow: "Confirmação",
-    rsvpTitle: "Você vem?",
+    rsvpTitle: "Conto contigo?",
     rsvpCopy:
-      "Avisa com alguma antecedência — assim a comida e o gelo dão conta.",
+      "Me avisa com antecedência pra eu me organizar.",
     rsvpLabel: "Confirmar pelo WhatsApp",
     rsvpMessage:
-      "Oi, Leonardo! Confirmo minha presença no chá de casa nova com os amigos, dia 13 de dezembro, às 11h. 💚",
-    rsvpNote: "Se aparecer um imprevisto, avisa também. Sem cerimônia.",
+      "Oi, Leonardo! Confirmo minha presença no chá de casa nova com os amigos, dia 13 de dezembro, às 11h.",
+    rsvpNote: "Se mudar de planos, é só avisar.",
   },
 } as const satisfies Record<InvitationGroup, InvitationDetails>;
 
