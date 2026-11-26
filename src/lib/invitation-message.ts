@@ -46,6 +46,8 @@ export function buildInvitationMessage({
     `📅 ${bold(event.compactDate)} — ${event.compactDateNote}`,
     place,
     "",
+    "🍗 O galeto e os refris ficam por minha conta. Quem quiser tomar uma cervejinha ou outra bebida, fica à vontade pra trazer o seu cooler.",
+    "",
     "Todas as informações estão no convite:",
     link,
     "",
