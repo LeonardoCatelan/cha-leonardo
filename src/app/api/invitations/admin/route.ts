@@ -136,7 +136,7 @@ async function loadInvitations() {
         .order("id", { ascending: false }),
       supabase
         .from("gift_reservations")
-        .select("invitation_id,gift_id,quantity,status,created_at")
+        .select("invitation_id,quantity,status")
         .not("invitation_id", "is", null)
         .in("status", ["reserved", "purchased"]),
     ]);
@@ -146,29 +146,25 @@ async function loadInvitations() {
     throw mapDatabaseError(reservationsResult.error);
   }
 
-  const giftIds = [
-    ...new Set((reservationsResult.data ?? []).map((item) => item.gift_id)),
-  ];
-  const giftNames = new Map<string, string>();
-  if (giftIds.length > 0) {
-    const { data: gifts, error: giftError } = await supabase
-      .from("gifts")
-      .select("id,name")
-      .in("id", giftIds);
-    if (giftError) throw mapDatabaseError(giftError);
-    for (const gift of gifts ?? []) giftNames.set(gift.id, gift.name);
+  // O painel recebe só as contagens. Quem escolheu o quê fica na página
+  // /reservas, para o anfitrião só ver a surpresa quando abrir de propósito.
+  const totals = new Map<string, { purchased: number; reserved: number }>();
+  for (const item of reservationsResult.data ?? []) {
+    if (!item.invitation_id) continue;
+    const total = totals.get(item.invitation_id) ?? {
+      purchased: 0,
+      reserved: 0,
+    };
+    if (item.status === "purchased") total.purchased += item.quantity;
+    else total.reserved += item.quantity;
+    totals.set(item.invitation_id, total);
   }
 
   return (invitations ?? []).map((invitation) => {
-    const reservations = (reservationsResult.data ?? [])
-      .filter((item) => item.invitation_id === invitation.id)
-      .map((item) => ({
-        createdAt: item.created_at,
-        giftId: item.gift_id,
-        giftName: giftNames.get(item.gift_id) ?? "Presente",
-        quantity: item.quantity,
-        status: item.status,
-      }));
+    const reservations = totals.get(invitation.id) ?? {
+      purchased: 0,
+      reserved: 0,
+    };
 
     let code = "";
     try {

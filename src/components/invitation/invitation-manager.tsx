@@ -19,12 +19,10 @@ const audienceFilters: { label: string; value: AudienceFilter }[] = [
   { label: "Amigos", value: "amigos" },
 ];
 
+// Só contagens: quem escolheu o quê fica na página /reservas.
 type ReservationSummary = {
-  createdAt: string;
-  giftId: string;
-  giftName: string;
-  quantity: number;
-  status: "purchased" | "reserved";
+  purchased: number;
+  reserved: number;
 };
 
 type ManagedInvitation = {
@@ -36,7 +34,7 @@ type ManagedInvitation = {
   createdAt: string;
   displayName: string;
   id: string;
-  reservations: ReservationSummary[];
+  reservations: ReservationSummary;
   sent: boolean;
   sentAt: string | null;
   sessionVersion: number;
@@ -73,7 +71,6 @@ export function InvitationManager({ onCount }: InvitationManagerProps) {
   const [filter, setFilter] = useState<AudienceFilter>("todos");
   const [query, setQuery] = useState("");
   const [confirmingDelete, setConfirmingDelete] = useState<string | null>(null);
-  const [expanded, setExpanded] = useState<string | null>(null);
   const [creating, setCreating] = useState(false);
 
   // `onCount` sai das dependências por referência. Ele avisa a contagem para
@@ -376,12 +373,7 @@ export function InvitationManager({ onCount }: InvitationManagerProps) {
       ) : (
         <ul className="adm-list">
           {visible.map((invitation) => {
-            const reserved = invitation.reservations
-              .filter((item) => item.status === "reserved")
-              .reduce((total, item) => total + item.quantity, 0);
-            const purchased = invitation.reservations
-              .filter((item) => item.status === "purchased")
-              .reduce((total, item) => total + item.quantity, 0);
+            const { purchased, reserved } = invitation.reservations;
             const busy = pending === `setConfirmed:${invitation.id}`;
 
             if (confirmingDelete === invitation.id) {
@@ -462,15 +454,7 @@ export function InvitationManager({ onCount }: InvitationManagerProps) {
                   )}
                 </button>
 
-                <button
-                  className="adm-row__gifts"
-                  type="button"
-                  aria-expanded={expanded === invitation.id}
-                  disabled={invitation.reservations.length === 0}
-                  onClick={() =>
-                    setExpanded(expanded === invitation.id ? null : invitation.id)
-                  }
-                >
+                <p className="adm-row__gifts">
                   {reserved > 0 && (
                     <span>
                       <b>{reserved}</b> reservado
@@ -481,10 +465,10 @@ export function InvitationManager({ onCount }: InvitationManagerProps) {
                       <b>{purchased}</b> comprado
                     </span>
                   )}
-                  {invitation.reservations.length === 0 && (
+                  {reserved + purchased === 0 && (
                     <span className="is-empty">—</span>
                   )}
-                </button>
+                </p>
 
                 <div className="adm-row__more">
                   {/* Primeiro da fila: é o que o casal usa para efetivamente
@@ -532,22 +516,6 @@ export function InvitationManager({ onCount }: InvitationManagerProps) {
                   </button>
                 </div>
 
-                {expanded === invitation.id && (
-                  <ul className="adm-row__detail">
-                    {invitation.reservations.map((reservation) => (
-                      <li key={`${reservation.giftId}:${reservation.status}`}>
-                        <span>
-                          {reservation.quantity}× {reservation.giftName}
-                        </span>
-                        <small>
-                          {reservation.status === "purchased"
-                            ? "Comprado"
-                            : "Reservado"}
-                        </small>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </li>
             );
           })}

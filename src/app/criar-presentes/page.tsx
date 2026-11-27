@@ -22,9 +22,16 @@ export default async function CreateGiftsPage() {
       <header className="adm__head">
         <p className="eyebrow">Casa nova</p>
         <h1>Painel</h1>
-        <Link className="adm__exit" href="/">
-          Ver o convite ↗
-        </Link>
+        <nav className="adm__links" aria-label="Outras páginas">
+          {/* As reservas ficam numa página à parte: o painel é aberto o tempo
+              todo para cuidar dos convites e não deve estragar a surpresa. */}
+          <Link className="adm__exit" href="/reservas">
+            Quem escolheu o quê ↗
+          </Link>
+          <Link className="adm__exit" href="/">
+            Ver o convite ↗
+          </Link>
+        </nav>
       </header>
 
       <AdminDashboard />
